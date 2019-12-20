@@ -1,31 +1,17 @@
 <template>
   <div class="media">
-    <a v-for="(media, key) in links" :key="key" :href="media.link" target="_blank" class="media__item">
-      <img :src="require(`@/assets/img/icons/media/${media.imgBlack}`)" :alt="media.alt" class="media__img">
-      </a>
+    <link rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
+        crossorigin="anonymous">
+    <a href="https://facebook.com" target="_blank" class="media__icon" :class="{ branco, preto }"><i class="fab fa-facebook-square"></i></a>
+    <a href="https://instagram.com" target="_blank"  class="media__icon" :class="{ branco, preto }"><i class="fab fa-instagram"></i></a>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      links: {
-        facebook: {
-          link: "https://www.facebook.com/dmacomunica/",
-          alt: "Facebook",
-          imgWhite: "facebook--white.png",
-          imgBlack: "facebook--black.png"
-        },
-        instagram: {
-          link: "https://www.instagram.com/dmaufrn/?hl=pt-br",
-          alt: "Instagram",
-          imgWhite: "instagram--white.png",
-          imgBlack: "instagram--black.png"
-        }
-      }
-    }
-  }
+  props: ["preto", "branco"]
 }
 </script>
 
@@ -33,11 +19,15 @@ export default {
 .media {
   display: flex;
   justify-content: center;
-  &__item {
+  &__icon {
+    font-size: 30px;
     margin: 0 10px;
-  }
-  &__img {
-    max-width: 40px;
+    &.branco {
+      color: white;
+    }
+    &.preto {
+      color: $d-color-1;
+    }
   }
 }
 </style>

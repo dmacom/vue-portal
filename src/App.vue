@@ -1,11 +1,25 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ backgroundImage: 'url(' + require('@/assets/img/bg.png') + ')' }">
+    <Header />
     <router-view/>
+    <Footer />
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+
+export default {
+  components: {
+    Header,
+    Footer
+  }
+}
+</script>
+
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,500,700,900&display=swap');
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

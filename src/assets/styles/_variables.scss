@@ -7,8 +7,10 @@ $p-color-2: #5CC25F;
 $p-color-3: #77DD77;
 $p-color-4: #83E983;
 
-$d-color-1: #1a1a1a;
+$d-color-1: #0A0A0A;
 $d-color-2: #3C3C3C;
+
+$branco: #F1F1F1;
 
 // ========== Tipografia ===========
 
@@ -81,19 +83,21 @@ $breakpoints: (
         font-size: .8rem;
     } @else if $size == "small" {
         font-size: 1.125rem;
-    } @else if $size == "medium" {
+    } @else if $size == "mid" {
         font-size: 1.5rem;
     } @else if $size == "big" {
         font-size: 2.25rem;
-    }  @else if $size == "big-big" {
-        font-size: 3rem;
-        @include mq('desktop') {
+    }  @else if $size == "giant" {
+        font-size: 4rem;
+        @include max('desktop') {
             font-size: 5rem;
         }
-        @include mq('tablet'){
+        @include max('tablet'){
             font-size: 4rem;
         }
-    }
+    } @else {
+        font-size: $size;
+    };
     @if $color { color: $color };
     @if $weight { font-weight: $weight };
     @if $lheight { line-height: $lheight };
@@ -104,4 +108,7 @@ $breakpoints: (
 @mixin container {
     @include center;
     width: 95%;
+    @include max("tablet-wide") {
+        width: 95%;
+    }
 }

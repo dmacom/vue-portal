@@ -1,17 +1,35 @@
 <template>
   <div class="home">
-    <Header />
+    <Hero />
+    <Politica />
+    <Quem />
+    <Cartilhas />
+    <Pesquisas />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import Header from '@/components/Header.vue';
+
+import Hero from "@/components/home/Hero.vue"
+import Politica from "@/components/home/Politica.vue"
+import Quem from "@/components/home/Quem.vue"
+import Cartilhas from "@/components/home/Cartilhas.vue"
+import Pesquisas from "@/components/home/Pesquisas.vue"
 
 export default {
   name: 'home',
   components: {
-    Header
+    Hero,
+    Politica,
+    Quem,
+    Cartilhas,
+    Pesquisas
   },
+  created() {
+    document.title = "Portal de meio ambiente da UFRN | Home"
+  }
 };
 </script>
+
+<style lang="scss" scoped>
+</style>
