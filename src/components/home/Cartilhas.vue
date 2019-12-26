@@ -20,10 +20,8 @@ export default {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding: 80px 0;
-    background-color: $d-color-1;
     &__title {
-      @include p-type("giant", 1, 700, white);
-      opacity: .4;
+      @include p-type("giant", 1, 700, $d-color-1);
       grid-column: 2 / -1;
       padding-bottom: 80px;
       justify-self: left;
@@ -34,7 +32,7 @@ export default {
         justify-content: center;
         &-item {
             width: 300px;
-            height: 400px;
+            height: 200px;
             background-color:$d-color-2;
             margin: 0 25px;
         }

@@ -1,14 +1,14 @@
 <template>
   <section class="hero">
     <div class="hero__title">
-      <h1>Bem-vindo às<br><span class="hero__title--green">boas práticas</span></h1>
-      <p>Saiba agora como a gente lida com o <b>meio ambiente</b>!</p>
+      <h1 ref="titleHero">Bem-vindo às<br><span class="hero__title--green">boas práticas</span></h1>
+      <p ref="subtitleHero">Saiba agora como a gente lida com o <b>meio ambiente</b>!</p>
     </div>
     <div class="hero__img">
-      <img class="hero__img--full" :src="require('@/assets/img/hero.png')" alt="Hero">
+      <img ref="heroBig" class="hero__img--full" :src="require('@/assets/img/hero.png')" alt="Hero">
       <img class="hero__img--mobile" :src="require('@/assets/img/hero-mobile.png')" alt="Hero">
     </div>
-    <div class="hero__to-scroll to-scroll">
+    <div ref="scroll" class="hero__to-scroll to-scroll">
         <div class="scroll-icon"></div>
         <p>Role para baixo</p>
     </div>
@@ -16,11 +16,23 @@
 </template>
 
 <script>
+import { TimelineLite } from 'gsap';
+
 export default {
   name: "Hero",
   data() {
     return {
     }
+  },
+  mounted() {
+    const { titleHero, subtitleHero, heroBig, scroll } = this.$refs;
+
+    const tl = new TimelineLite( { delay: .5 })
+
+    tl.from(heroBig, 1, { opacity: 0 , y: 20 })
+    tl.from(titleHero, 1, { opacity: 0, y: 20 })
+    tl.from(subtitleHero, .5, { opacity: 0 })
+    tl.from(scroll, 1.5, { opacity: 0, y: -10 })
   }
 }
 </script>
